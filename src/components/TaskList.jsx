@@ -28,9 +28,28 @@ export default async function TaskList() {
       {query.rows.map((task) => (
         <div
           key={task.id}
-          className="flex p-3 m-2 gap-2 text-xs border-2 rounded-2xl bg-stone-100"
+          className="flex p-3 m-2 gap-2 text-xs border-2 rounded-2xl infobar sunken"
         >
-          {`${task.title}: ${task.details}`}
+          <details>
+            <summary>{task.title}</summary>
+            <div>
+              <br />
+              <div>
+                {task.details}
+
+                <Link href={`/edit/${task.id}`} className="ttbutton-sm">
+                  {" "}
+                  Edit{" "}
+                </Link>
+                <Link href={`/delete/${task.id}`} className="ttbutton-sm">
+                  Delete
+                </Link>
+                <Link href={`/tag/${task.id}`} className="ttbutton-sm">
+                  Tags
+                </Link>
+              </div>
+            </div>
+          </details>
         </div>
       ))}
     </div>

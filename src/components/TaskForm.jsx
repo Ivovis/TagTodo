@@ -56,7 +56,6 @@ export default async function TaskForm(props) {
             autoFocus
             maxLength="60"
             placeholder="Enter the task name here..."
-            // className="text-white p-3 m-2 border-2 rounded-md h-10 custom-panel"
             className="mt-1 w-full p-2 border sunken border-gray-300 rounded-md shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-400"
             required
           />
@@ -67,14 +66,10 @@ export default async function TaskForm(props) {
             maxLength="299"
             placeholder="Enter task details here ..."
             required
-            // className="p-3 m-2 border-2 rounded-md h-30 custom-panel"
             className="h-60 mt-5 w-full p-2 border sunken border-gray-300 rounded-md shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
-          <div className="flex justify-center ">
-            <button
-              type="submit"
-              className="p-2 mt-5 m-2 w-40 border-2 rounded-md custom-panel custom-shadow"
-            >
+          <div className="flex justify-center pt-5">
+            <button type="submit" className="ttbutton">
               Save
             </button>
           </div>
