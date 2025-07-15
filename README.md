@@ -69,4 +69,4 @@ While the tasks and title have identical columns it is expected that the tasks w
 
 The project uses nextjs, pg, and clerk, accessing a supabase.com database.
 
-To be deployed on vercel.com
+To be deployed on vercel.com  
