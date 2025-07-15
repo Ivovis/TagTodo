@@ -8,8 +8,6 @@ export default async function TaskForm(props) {
   const taskID = props.taskId;
   const userId = props.userId;
 
-  console.log("form", props);
-
   async function handleSubmit(formData) {
     "use server";
 
@@ -24,9 +22,8 @@ export default async function TaskForm(props) {
       userId,
     ]);
 
-    // revalidate
-
-    // redirect
+    revalidatePath(`/`);
+    redirect(`/`);
   }
 
   // just display the task
@@ -56,7 +53,8 @@ export default async function TaskForm(props) {
           <input
             type="text"
             name="title"
-            maxLength="30"
+            autoFocus
+            maxLength="60"
             placeholder="Enter the task name here..."
             // className="text-white p-3 m-2 border-2 rounded-md h-10 custom-panel"
             className="mt-1 w-full p-2 border sunken border-gray-300 rounded-md shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-400"

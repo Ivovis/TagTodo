@@ -6,24 +6,33 @@ import {
   SignUpButton,
 } from "@clerk/nextjs";
 
+import { db } from "@/utils/dbConnection";
+import Link from "next/link";
+
 import { auth } from "@clerk/nextjs/server";
 
-export default function TaskList() {
-  // check logged in
-  // go get tasks for this user
+export default async function TaskList() {
+  const { userId } = await auth();
+  if (userId == null) {
+    redirect("/sign-in");
+  }
+
+  const query = await db.query(`SELECT * FROM tt_tasks WHERE cid = $1`, [
+    userId,
+  ]);
+
+  console.log("row", query.rows);
+
   return (
     <div>
-      <SignedIn>
-        {/* show the list of tasks here */}
-        <h2 className="text-xl font-semibold mb-4">Task list</h2>
-        {/* // --- temp --- */}
-        {Array.from({ length: 50 }).map((_, i) => (
-          <p key={i} className="mb-2">
-            Task number {i + 1}
-          </p>
-        ))}
-        {/* // --- temp --- */}
-      </SignedIn>
+      {query.rows.map((task) => (
+        <div
+          key={task.id}
+          className="flex p-3 m-2 gap-2 text-xs border-2 rounded-2xl bg-stone-100"
+        >
+          {`${task.title}: ${task.details}`}
+        </div>
+      ))}
     </div>
   );
 }
