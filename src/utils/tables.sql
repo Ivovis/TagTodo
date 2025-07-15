@@ -3,19 +3,19 @@ CREATE TABLE IF NOT EXISTS tt_tasks (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     title VARCHAR(255) NOT NULL,
     details TEXT,
-    cid INT NOT NULL
+    cid TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS tt_tags (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     tag_name VARCHAR(255) NOT NULL,
     tag_details TEXT,
-    cid INT NOT NULL
+    cid TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS tt_tag_links (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     task_id INT REFERENCES tt_tasks(id) NOT NULL,
     tag_id INT REFERENCES tt_tags(id) NOT NULL,
-    cid INT NOT NULL
+    cid TEXT NOT NULL
 );
