@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       <ClerkProvider appearance={{ cssLayerName: "clerk" }}>
         <html lang="en">
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`flex flex-col h-screen overflow-hidden ${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <Header />
             {children}

@@ -11,18 +11,24 @@ import {
 export default async function Header() {
   return (
     <>
-      <div>
-        <Link href="/">Home</Link>
+      <div className="flex custom-panel justify-around text-white p-2 m-2 rounded-md box-border custom-shadow">
         <SignedIn>
-          <UserButton />
+          <div className="flex justify-between gap-8">
+            <Link href="/">Tasks</Link>
+            <Link href="/tags">Tags</Link>
+            <Link href="/new">New Task</Link>
+            <Link href="/about">About</Link>
+            <UserButton />
+          </div>
         </SignedIn>
+
         <SignedOut>
           <div className="flex justify-between gap-3">
             <SignInButton mode="modal" />
             <SignUpButton mode="modal" />
+            <Link href="/about">About</Link>
           </div>
         </SignedOut>
-        <Link href="/about">About</Link>
       </div>
     </>
   );

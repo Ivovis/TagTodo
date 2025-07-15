@@ -6,20 +6,15 @@ import {
   SignInButton,
   SignUpButton,
 } from "@clerk/nextjs";
-import TaskList from "@/components/TaskList";
+import TagList from "@/components/TagList";
 
 import { auth } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default function TagListPage() {
   return (
     <div className="flex-1 overflow-y-auto custom-panel  text-white p-4 m-2 rounded-md box-border custom-shadow">
-      <SignedOut>
-        <h1 className="flex justify-around text-3xl mt-7">
-          Please sign in to continue
-        </h1>
-      </SignedOut>
       <SignedIn>
-        <TaskList />
+        <TagList />
       </SignedIn>
     </div>
   );
