@@ -65,6 +65,6 @@ While the tasks and title have identical columns it is expected that the tasks w
 
 #### Project layout
 
-The project uses a vite based client and express server, accessing a supabase.com database and clerk based authentication solution.
+The project uses nextjs, pg, and clerk, accessing a supabase.com database.
 
-To be deployed on render.com
+To be deployed on vercel.com
