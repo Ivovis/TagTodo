@@ -54,10 +54,12 @@ Footer (always visible)
 
 <img src="./misc/TagTodo-Schema.png" alt="schema of three tables" width="400" >
 
-- tt\_ unique prefix for multi use database
+- tt\_ A unique prefix for multi use database
 - tt_tasks the tasks, with title and text
 - tt_tags the tags, with title and details
 - tt_tag_links, the tag links table used to link a tag to a task
+
+All three have a cid column, this holds the owners clerk id.
 
 While the tasks and title have identical columns it is expected that the tasks will be expanded later and this separation of data will avoid confusion.
 
