@@ -14,9 +14,10 @@ export default async function DeleteTask({ params }) {
   }
 
   // get the task
-  const taskData = await db.query(`SELECT * FROM tt_tasks WHERE id = $1`, [
-    taskId,
-  ]);
+  const taskData = await db.query(
+    `SELECT * FROM tt_tasks WHERE id = $1 and cid = $2 `,
+    [taskId, userId]
+  );
   const task = taskData.rows[0];
 
   if (!task) {
@@ -32,9 +33,30 @@ export default async function DeleteTask({ params }) {
 
   async function handleDelete(formData) {
     "use server";
-    await db.query("DELETE FROM tt_tasks WHERE id = $1", [
-      formData.get("taskId"),
-    ]);
+    const id = formData.get("taskId");
+    const userId = formData.get("userId");
+
+    await db.query("BEGIN");
+    try {
+      // Delete tag links
+      const q1 = await db.query(
+        `DELETE FROM tt_tag_links WHERE task_id = $1 AND cid = $2`,
+        [id, userId]
+      );
+
+      // Delete the task
+      const q2 = await db.query(
+        `DELETE FROM tt_tasks WHERE id = $1 AND cid = $2`,
+        [id, userId]
+      );
+
+      await db.query("COMMIT");
+    } catch (error) {
+      await db.query("ROLLBACK");
+      console.error("Error deleting task:", error);
+      throw error;
+    }
+
     revalidatePath("/");
     redirect("/");
   }
@@ -65,6 +87,7 @@ export default async function DeleteTask({ params }) {
       <div className="flex justify-center space-x-4">
         <form action={handleDelete}>
           <input type="hidden" name="taskId" value={taskId} />
+          <input type="hidden" name="userId" value={userId} />
           <button type="submit" className="ttbutton-sm">
             Confirm
           </button>
