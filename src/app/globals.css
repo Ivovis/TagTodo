@@ -26,16 +26,16 @@ body {
     inset -4 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.infobar {
+/* .infobar {
   background: var(--panel);
-}
+} */
 
 .ttbutton {
-  display: inline-flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 2.5rem; /* Matches Tailwind's h-10 */
-  padding: 0 1.25rem; /* Adjusted padding (20px horizontal, 0 vertical) */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 1.25rem;
   margin: 2px;
   text-align: center;
   color: #fff;
@@ -51,7 +51,7 @@ body {
   box-shadow: inset 2px 2px 3px rgb(255 255 255 / 0.6),
     inset -2px -2px 3px rgb(0 0 0 / 0.6);
   border: 0;
-  font-size: 1rem; /* Ensure consistent font size */
+  font-size: 1rem;
 }
 
 .ttbutton:hover {
@@ -63,12 +63,11 @@ body {
     inset 2px 2px 3px rgb(0 0 0 / 0.6);
 }
 
-/* Optional: Smaller variant for Header */
 .ttbutton-sm {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 1.5rem; /* Smaller height, equivalent to Tailwind's h-8 */
+  height: 1.5rem;
   padding: 0.7rem 1rem;
   margin: 2px;
   text-align: center;

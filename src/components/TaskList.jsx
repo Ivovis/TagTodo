@@ -21,8 +21,6 @@ export default async function TaskList() {
     userId,
   ]);
 
-  console.log("row", query.rows);
-
   return (
     <div>
       {query.rows.map((task) => (
@@ -38,8 +36,7 @@ export default async function TaskList() {
                 {task.details}
 
                 <Link href={`/edit/${task.id}`} className="ttbutton-sm">
-                  {" "}
-                  Edit{" "}
+                  Edit
                 </Link>
                 <Link href={`/delete/${task.id}`} className="ttbutton-sm">
                   Delete
