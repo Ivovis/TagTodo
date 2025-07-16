@@ -47,8 +47,10 @@ export default async function DeleteTask({ params }) {
   return (
     <div className="flex-1 overflow-y-auto custom-panel  text-white p-4 m-2 rounded-md box-border custom-shadow">
       <div className="w-full max-w-md mx-auto">
-        <h1 className="text-lg font-bold text-red-700 mb-4">Delete Task</h1>
-        <div className="mb-4">
+        <h1 className="flex justify-center text-lg font-bold text-red-700 mb-4">
+          Delete Task
+        </h1>
+        <div className="flex flex-col items-center mb-4">
           <p>
             <strong>Title:</strong> {task.title}
           </p>
@@ -56,7 +58,7 @@ export default async function DeleteTask({ params }) {
             <strong>Details:</strong> {task.details}
           </p>
         </div>
-        <p className="text-sm text-red-600 mb-4">
+        <p className="flex justify-center text-sm text-red-600 mb-4">
           Are you sure you want to delete this task?
         </p>
       </div>
