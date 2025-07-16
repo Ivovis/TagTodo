@@ -55,7 +55,7 @@ body {
 }
 
 .ttbutton:hover {
-  background-color: red;
+  background-color: rgb(200 200 0);
 }
 
 .ttbutton:active {
@@ -88,10 +88,20 @@ body {
 }
 
 .ttbutton-sm:hover {
-  background-color: red;
+  background-color: rgb(200 200 0);
 }
 
 .ttbutton-sm:active {
   box-shadow: inset -2px -2px 3px rgb(255 255 255 / 0.6),
     inset 2px 2px 3px rgb(0 0 0 / 0.6);
+}
+
+.ttinerttag {
+  background-color: rgb(78 78 78);
+  background-image: linear-gradient(
+    to top left,
+    rgb(0 0 0 / 0.2),
+    rgb(0 0 0 / 0.2) 30%,
+    rgb(0 0 0 / 0)
+  );
 }

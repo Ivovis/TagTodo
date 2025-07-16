@@ -1,14 +1,5 @@
-import Link from "next/link";
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import TaskList from "@/components/TaskList";
-
-import { auth } from "@clerk/nextjs/server";
 
 export default function Home() {
   return (

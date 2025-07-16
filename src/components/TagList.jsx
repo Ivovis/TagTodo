@@ -27,12 +27,14 @@ export default async function TagList() {
               <br />
               <div>
                 {tag.tag_details}
-                <Link href={`/edittag/${tag.id}`} className="ttbutton-sm">
-                  Edit
-                </Link>
-                <Link href={`/deletetag/${tag.id}`} className="ttbutton-sm">
-                  Delete
-                </Link>
+                <div className="flex gap-2 mt-2">
+                  <Link href={`/edittag/${tag.id}`} className="ttbutton-sm">
+                    Edit
+                  </Link>
+                  <Link href={`/deletetag/${tag.id}`} className="ttbutton-sm">
+                    Delete
+                  </Link>
+                </div>
               </div>
             </div>
           </details>

@@ -30,6 +30,40 @@ export default async function DeleteTag({ params }) {
     );
   }
 
+  // Get any links for this tag
+  const tagLinksData = await db.query(
+    `SELECT * FROM tt_tag_links WHERE tag_id = $1 AND cid = $2`,
+    [tagId, userId]
+  );
+
+  // if we have any returned rows show the error page
+  if (tagLinksData.rows.length > 0) {
+    return (
+      <div className="flex-1 overflow-y-auto custom-panel text-white p-4 m-2 rounded-md box-border custom-shadow">
+        <h1 className="flex justify-center text-lg font-bold text-red-700 mb-4">
+          Cannot Delete Tag
+        </h1>
+        <div className="flex flex-col items-center mb-4 text-left">
+          <p>
+            <strong>Name:</strong> {tag.tag_name}
+          </p>
+          <p>
+            <strong>Details:</strong> {tag.tag_details}
+          </p>
+        </div>
+        <p className="flex justify-center text-sm text-red-600 mb-4">
+          This tag is currently in use by one or more tasks and cannot be
+          deleted.
+        </p>
+        <div className="flex justify-center">
+          <Link href="/tags" className="ttbutton-sm">
+            Back to Tags
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   async function handleDelete(formData) {
     "use server";
     const id = formData.get("tagId");
@@ -42,6 +76,7 @@ export default async function DeleteTag({ params }) {
     redirect("/tags");
   }
 
+  // show the normal warning and as for confirmation
   return (
     <div className="flex-1 overflow-y-auto custom-panel  text-white p-4 m-2 rounded-md box-border custom-shadow">
       <h1 className="flex justify-center text-lg font-bold text-red-700 mb-4">
