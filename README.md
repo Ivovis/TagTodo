@@ -11,14 +11,16 @@ App name: **TagTodo**
 - As a user I want a secure login system to protect my data.
 - As a user I want to have clean navigation.
 - As a user I want to create tasks.
+- As a user I want to edit tasks.
+- As a user I want to delete tasks.
+- As a user I want to tasks to have a title and description.
 - As a user I want to tag a task with one or more tags.
-- As a user I want to view all tasks.
-- As a user I want to view all tasks with selected tag or tags.
-- As a user I want to edit an existing task.
-- As a user I want to delete a task.
-- As a user I want to Create new tags.
-- As a user I want to Edit existing tags.
+- As a user I want to view all tasks ordered based on tags.
+- As a user I want to create new tags.
+- As a user I want to edit existing tags.
 - As a user I want to Delete existing tags.
+- As a user I want to tag to have a title and description.
+- As a user I want to change a tags importance.
 
 ---
 
@@ -46,13 +48,12 @@ Content area (one of the following)
 Footer (always visible)
 
 - copyright
-- faux social media links
 
 ---
 
 #### database schema
 
-<img src="./misc/TagTodo-Schema.png" alt="schema of three tables" width="400" >
+<img src="./misc/supabase-tables.png" alt="schema of three tables" width="700" >
 
 - tt\_ A unique prefix for multi use database
 - tt_tasks the tasks, with title and text
@@ -69,4 +70,36 @@ While the tasks and title have identical columns it is expected that the tasks w
 
 The project uses nextjs, pg, and clerk, accessing a supabase.com database.
 
-To be deployed on vercel.com  
+##### installation
+
+You should be familiar with supabase.com and clerk.com and have an account with both, your system should have node and npm installed and working before usung this software.
+
+Clone the repository:
+
+```bash
+    git clone git@github.com:Ivovis/TagTodo.git
+```
+
+Install dependencies:
+
+```bash
+   cd TagTodo
+   npm install
+```
+
+Copy or rename example.env.local to env.local
+edit env.local replacing the angle brackets with the variables listed within them.
+
+Create the tables in the database:
+
+```bash
+    node seed.js
+```
+
+Run the app:
+
+```bash
+    npm run dev
+```
+
+Navigate to http://localhost:3000
