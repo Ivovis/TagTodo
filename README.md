@@ -72,7 +72,7 @@ The project uses nextjs, pg, and clerk, accessing a supabase.com database.
 
 ##### installation
 
-You should be familiar with supabase.com and clerk.com and have an account with both, your system should have node and npm installed and working before usung this software.
+You should be familiar with supabase.com and clerk.com and have an account with both, your system should have node and npm installed and working before using this software.
 
 Clone the repository:
 
