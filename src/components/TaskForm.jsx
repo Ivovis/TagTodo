@@ -72,7 +72,7 @@ export default async function TaskForm({ mode, userId, taskId }) {
         />
         <textarea
           name="details"
-          maxLength="299"
+          maxLength="3000"
           defaultValue={mode === "Edit" ? task.details : ""}
           placeholder="Enter task details here ..."
           className="h-60 mt-5 w-full p-2 border sunken border-gray-300 rounded-md shadow-inner focus:outline-none focus:ring-2 focus:ring-amber-400"

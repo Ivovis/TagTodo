@@ -19,3 +19,11 @@ CREATE TABLE IF NOT EXISTS tt_tag_links (
     tag_id INT REFERENCES tt_tags(id) NOT NULL,
     cid TEXT NOT NULL
 );
+
+
+-- added rank column and an index to tt_tags
+
+ALTER TABLE tt_tags
+ADD COLUMN rank INTEGER DEFAULT 0;
+
+CREATE INDEX idx_tt_tags_cid_rank_id ON tt_tags (cid, rank DESC, id ASC);
